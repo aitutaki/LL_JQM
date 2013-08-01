@@ -1,0 +1,65 @@
+.ui-icon-home,.ui-icon-camera,.ui-icon-dice,.ui-icon-clubs,.ui-icon-phone,.ui-icon-undo,.ui-icon-user,.ui-icon-users,.ui-icon-search,.ui-icon-arrow-left,.ui-icon-table,.ui-icon-envelope,.ui-icon-mobile,.ui-icon-check-alt,.ui-icon-x-altx-alt,.ui-icon-award-stroke,.ui-icon-arrow-down-alt1 {
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	background-image: url(sprites.png);
+	background-repeat: no-repeat;
+	background-color: inherit;
+	box-shadow: none;
+	border-radius: 0;
+}
+
+.selected .ui-icon-home,.selected .ui-icon-camera,.selected .ui-icon-dice,.selected .ui-icon-clubs,.selected .ui-icon-phone,.selected .ui-icon-undo,.selected .ui-icon-user,.selected .ui-icon-users,.selected .ui-icon-search,.selected .ui-icon-arrow-left,.selected .ui-icon-table,.selected .ui-icon-envelope,.selected .ui-icon-mobile,.selected .ui-icon-check-alt,.selected .ui-icon-x-altx-alt,.selected .ui-icon-award-stroke,.selected .ui-icon-arrow-down-alt1 {
+	background-image: url(sprites_blue.png);
+}
+.ui-icon-home {
+	background-position: 0 0;
+}
+.ui-icon-camera {
+	background-position: -44px 0;
+}
+.ui-icon-dice {
+	background-position: -88px 0;
+}
+.ui-icon-clubs {
+	background-position: -132px 0;
+}
+.ui-icon-phone {
+	background-position: -176px 0;
+}
+.ui-icon-undo {
+	background-position: -220px 0;
+}
+.ui-icon-user {
+	background-position: -264px 0;
+}
+.ui-icon-users {
+	background-position: -308px 0;
+}
+.ui-icon-search {
+	background-position: -352px 0;
+}
+.ui-icon-arrow-left {
+	background-position: -396px 0;
+}
+.ui-icon-table {
+	background-position: -440px 0;
+}
+.ui-icon-envelope {
+	background-position: -484px 0;
+}
+.ui-icon-mobile {
+	background-position: -528px 0;
+}
+.ui-icon-check-alt {
+	background-position: -572px 0;
+}
+.ui-icon-x-altx-alt {
+	background-position: -616px 0;
+}
+.ui-icon-award-stroke {
+	background-position: -660px 0;
+}
+.ui-icon-arrow-down-alt1 {
+	background-position: -704px 0;
+}

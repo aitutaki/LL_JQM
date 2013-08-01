@@ -1,0 +1,555 @@
+*
+{
+	box-sizing: border-box;
+}
+
+body
+{
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	font-family: Tahoma, Helvetica, sans-serif;
+	font-size: 12pt;
+	font-weight: normal;
+	color: black;
+	background-color: #ffffff;
+	/* background-image: url(../img/bg.png); */
+
+	overflow: hidden;
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: moz-none;
+	-ms-user-select: none;
+	-ms-touch-action: none;
+	user-select: none;
+}
+
+.hide
+{
+	display: none;
+}
+
+#ll-overlay
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 8000;
+}
+
+.ll-scroll
+{
+	/* margin-top: 45px; */
+	position: absolute;
+	top: 45px;
+	left: 0px;
+	bottom: 59px;
+	right: 0px;
+	overflow: scroll;
+	padding: 10px;
+	-webkit-overflow-scrolling: touch;
+}
+
+#ll-scroll-wrapper
+{
+	width: 100%;
+}
+
+.ll-logo
+{
+	font-weight: normal;
+}
+
+.ll-logo .league
+{
+	color: #c0c0c0;
+	/* float: left; */
+}
+
+.ll-logo .light
+{
+	color: white;
+	/* float: left; */
+}
+
+.ll-header
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
+	background-color: #333333;
+	color: white;
+	text-align: center;
+	/* padding-left: 15px; */
+	font-size: 14pt;
+	box-sizing: border-box;
+}
+
+.ll-header a.button
+{
+	display: none;
+	/* height: 32px; */
+	position: absolute;
+	top: 9px;
+	left: 6px;
+	line-height: 23px;
+	font-size: 8pt;
+}
+
+.ll-header a.button .icon
+{
+	position: relative;
+	top: 4px;
+	left: 4px;
+}
+
+.ll-header a.button .text
+{
+	padding-left: 24px;
+	padding-right: 8px;
+}
+
+.ll-content
+{
+	/* padding: 10px; */
+	padding: 15px;
+	overflow: hidden;
+	line-height: 1.5em;
+	width: 100%;
+	background-color: white;
+	display: none;
+}
+
+.ll-content.active
+{
+	display: block;
+}
+
+.ll-footer
+{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	height: 59px;
+	background-color: #333333;
+}
+
+.ll-footer .ll-footer-btn
+{
+	float: left;
+	width: 25%;
+	box-sizing: border-box;
+	text-align: center;
+	padding-top: 12px;
+	padding-bottom: 12px;
+
+	text-decoration: none;
+
+	/* border: 1px solid #111; */
+	background: #333;
+	font-weight: bold;
+	color: #FFF;
+	text-shadow: 0 1px 0 #111;
+	background-image: -webkit-gradient(linear,left top,left bottom,from( #444 ),to( #2D2D2D ));
+	background-image: -webkit-linear-gradient( #444,#2D2D2D );
+	background-image: -moz-linear-gradient( #444,#2D2D2D );
+	background-image: -ms-linear-gradient( #444,#2D2D2D );
+	background-image: -o-linear-gradient( #444,#2D2D2D );
+	background-image: linear-gradient( #444,#2D2D2D );
+
+}
+
+#clubFooter.ll-footer .ll-footer-btn
+{
+	width: 20%;
+}
+
+.ll-footer .ll-footer-btn.selected
+{
+	background-image: -webkit-gradient(linear,left top,left bottom,from( #2D2D2D ),to( #444 ));
+	background-image: -webkit-linear-gradient( #2D2D2D, #444 );
+	background-image: -moz-linear-gradient( #2D2D2D, #444 );
+	background-image: -ms-linear-gradient( #2D2D2D, #444 );
+	background-image: -o-linear-gradient( #2D2D2D, #444 );
+	background-image: linear-gradient( #2D2D2D, #444 );
+	border-left: 2px solid #444;
+	border-right: 2px solid #444;
+	color: #35C2FF;
+}
+
+.ll-footer-icon
+{
+	display: block;
+	clear: both;
+}
+
+.ll-footer-text
+{
+	display: block;
+	clear: both;
+	font-size: 8pt;
+
+	width: 100%;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
+}
+
+/*
+.ll-page
+{
+	border-radius: 2px;
+	margin: 20px;
+	padding: 10px;
+	background-color: white;
+	box-shadow: 5px 5px 0px #333;
+}
+
+#login
+{
+	background: none;
+}
+*/
+
+#login .ll-scroll,
+#home .ll-scroll
+{
+	bottom: 0px;
+}
+
+#login_submit
+{
+	width: 100%;
+	display: block;
+	text-decoration: none;
+}
+
+#search .ll-scroll
+{
+	padding: 0px;
+}
+
+#search_panel
+{
+	height: 56px;
+	border-bottom: 1px solid #808080;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#search_text
+{
+	position: absolute;
+	left: 10px;
+	right: 100px;
+	margin-bottom: 0em;
+	width: auto;
+	height: 36px;
+	/* padding-left: 34px; */
+}
+
+#search_btnSearch
+{
+	position: absolute;
+	right: 10px;
+	width: 80px;
+	height: 36px;
+}
+
+#search_results_panel
+{
+}
+
+#search_results
+{
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+	overflow: hidden;
+}
+
+#search_results li
+{
+	float: left;
+	clear: both;
+	/* padding: 10px; */
+	width: 100%;
+	background-image: url(../img/listitembg.png);
+	background-repeat: repeat-x;
+	background-position: bottom left;
+	border-bottom: 1px solid #808080;
+	position: relative;
+}
+
+#search_results li img
+{
+	float: left;
+	height: 60px;
+	position: absolute;
+}
+
+#search_results a
+{
+	color: black;
+	text-decoration: none;
+}
+
+.search_results_text
+{
+	float: left;
+	line-height: 60px;
+	padding-left: 70px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow-x: hidden;
+	width: 100%;
+}
+
+#search_icon
+{
+	position: absolute;
+	top: 16px;
+	left: 20px;
+	z-index: 1000;
+}
+
+#search_msg
+{
+	position: absolute;
+	top: 50%;
+	left: 0px;
+	width: 100%;
+	line-height: 36px;
+	height: 36px;
+	margin-top: -18px;
+	background-color: white;
+	z-index: 9000;
+	text-align: center;
+
+}
+
+#home
+{
+	background-color: white;
+}
+
+#home p
+{
+	padding: 10px;
+	font-size: 10pt;
+	color: #808080;
+}
+
+#home_banner
+{
+	background-image: url(../img/floodlights.jpg);
+	height: 200px;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-color: black;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+#home .league
+{
+	/* float: left; */
+	/* clear: both; */
+	border-bottom: 1px solid #c0c0c0;
+	width: 100%;
+	line-height: 24px;
+	text-align: left;
+	position: relative;
+	padding-left: 80px;
+	margin-bottom: 10px;
+	text-transform: none;
+	font-weight: normal;
+	display: block;
+}
+
+#home .league-photo-wrapper
+{
+	position: absolute;
+	top: 50%;
+	margin-top: -30px;
+	left: 8px;
+	width: 60px;
+	height: 60px;
+}
+
+#home .league-photo-wrapper img
+{
+	height: 60px;
+}
+
+.league-photo-wrapper,
+.club-photo-wrapper
+{
+	width: 80px;
+	height: 80px;
+	overflow: hidden;
+	margin-right: 15px;
+	float: left;
+	border-radius: 6px;
+}
+
+.league-photo-wrapper img,
+.club-photo-wrapper img
+{
+	height: 80px;
+}
+
+#home .league-data
+{
+	overflow-x: hidden;
+}
+
+#home .league-data>div
+{
+	text-overflow: ellipsis;
+	overflow-x: hidden;
+	white-space: nowrap;
+}
+
+#player.ll-content
+{
+	background: none;
+}
+
+#player_banner
+{
+	/* background-image: url(../img/playerbannerbg.png); */
+	background-repeat: repeat-x;
+	background-position: bottom left;
+	overflow: hidden;
+}
+
+#player_photo
+{
+	height: 160px;
+	float: left;
+	padding: 10px;
+	margin: 20px;
+	box-shadow: 0px 0px 14px #808080;
+	background-color: white;
+}
+
+#player_details
+{
+	margin-top: 110px;
+	padding-top: 10px;
+	padding-bottom: 300px;
+	background-color: white;
+}
+
+#player_properties
+{
+	float: left;
+	clear: both;
+	margin-left: 20px;
+	list-style-type: none;
+}
+
+#player_properties li
+{
+	margin-bottom: 4px;
+}
+
+#player_properties span.icon
+{
+	position: relative;
+	top: 4px;
+	margin-right: 10px;
+}
+
+#home button
+{
+	width: 100%;
+}
+
+#home_leagues
+{
+	margin-top: 1.5em;
+}
+
+#league_header,
+#club_header
+{
+	background-color: #eeeeee;
+	margin: -10px;
+	padding: 10px;	
+}
+
+#league_leagueName,
+#club_clubName
+{
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-weight: bold;
+}
+
+#league_properties,
+#club_properties
+{
+	float: left;
+	clear: both;
+	margin-top: 10px;
+	font-size: 10pt;
+}
+
+#league_properties .property,
+#club_properties .property {
+	float: left;
+	clear: both;
+	position: relative;
+}
+
+#league_properties .property div,
+#club_properties .property div {
+	float: left;
+	clear: none;
+}
+
+
+#league_properties .property div.label,
+#club_properties .property div.label {
+	font-weight: bold;
+	width: 120px;
+	text-align: right;
+	color: #808080;
+	padding-right: 20px;
+	position: absolute;
+}
+
+#league_properties .property div.value,
+#club_properties .property div.value {
+	/*
+	white-space: nowrap;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+	*/
+	padding-left: 120px
+}
+
+.btnBack
+{
+	background-image: url(../sprites/undo.png);
+	background-position: 0;
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	top: 4px;
+	left: 4px;
+
+}

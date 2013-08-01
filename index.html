@@ -1,0 +1,453 @@
+<!doctype html>
+<html>
+<head>
+    <title>LeagueLight</title>
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+	<!--
+	<link rel="stylesheet" href="lib/css/reset.css" />
+	<link rel="stylesheet" href="lib/css/base.css" />
+	<link rel="stylesheet" href="lib/css/forms.css" />
+	-->
+	<link rel="stylesheet" href="lib/js/jqm/jquery.mobile.structure-1.3.2.min.css" />
+	<link rel="stylesheet" href="lib/js/jqm/jquery.mobile.theme-1.3.2.min.css" />
+	<link rel="stylesheet" href="lib/sprites/sprites.css" />
+
+    <script src="lib/js/jquery.js"></script>
+    <script src="lib/js/jqm/jquery.mobile-1.3.2.min.js"></script>
+	<!-- <script src="lib/js/iscroll/iscroll.js"></script> -->
+	<!-- <script src="lib/js/fastbutton.js"></script> -->
+    <script src="lib/js/Utils.js"></script>
+	<script src="controllers/appController.js"></script>
+	<script src="controllers/loginController.js"></script>
+	<script src="controllers/homeController.js"></script>
+	<script src="controllers/leagueController.js"></script>
+	<script src="controllers/clubController.js"></script>
+	<script src="controllers/teamController.js"></script>
+	<script src="controllers/searchController.js"></script>
+	<script src="controllers/playerController.js"></script>
+	<script src="controllers/dal.js"></script>
+	<script src="http://debug.phonegap.com/target/target-script-min.js#LeagueLight"></script>
+	<!-- <script src="phonegap.js"></script> -->
+	<script language="javascript">
+		document.addEventListener('DOMContentLoaded', function () {
+			setTimeout(function() {
+				APP.init()
+				APP.view = $("#login");
+				APP.controller = LL.Controllers.login;
+				APP.controller.init();
+			}, 200);
+		}, false);
+	</script>
+	<style>
+		.selected
+		{
+			color: #6facd5;
+		}
+
+		#footerContainer
+		{
+			position: absolute;
+			bottom: 0px;
+			width: 100%;
+		}
+
+		.ll-content
+		{
+			display: none;
+		}
+
+		.ll-content.active
+		{
+			display: block;
+		}
+
+		.ll-scroll {
+			position: absolute;
+			top: 44px;
+			bottom: 60px;
+			left: 0px;
+			right: 0px;
+			overflow: scroll;
+			-webkit-overflow-scrolling: touch;
+		}
+		
+	</style>
+</head>
+<body class="asduse-fastclick">
+			<div id="login" class="ll-content active" data-footer="false" data-role="page">
+				<div data-role="header" class="ll-header">
+					<a class="button" data-icon="back" href="#">Back</a>
+					<h1>LL</h1>
+				</div>
+
+				<div data-role="content" class="ll-scroll">
+					<form id="login_form">
+						<div class="ll-page">
+							<label for="login_uid">Email</label>
+							<input type="text" id="login_uid" name="login_uid" placeholder="Email" value="tom" required>
+
+							<label for="login_pwd">Password</label>
+							<input type="password" id="login_pwd" name="login_pwd" placeholder="Password" value="crawl3y" required>
+
+							<a href="#" id="login_submit" data-role="button" class="button">Login</a>
+						</div>
+					</form>
+				</div>
+				<!--
+				<div id="footerContainer" data-role="footer" data-id="footerContainer" data-tap-toggle="false">
+					<div id="footer" data-role="navbar">
+						<ul>
+							<li><a href="#new" data-icon="home">Details</a></li>
+							<li><a href="#list" data-icon="clubs">Clubs</a></li>
+							<li><a href="#list" data-icon="users">Teams</a></li>
+							<li><a href="#home" data-icon="table">Tables</a></li>
+						</ul>
+					</div>
+				</div>
+				-->
+			</div>
+
+			<div id="home" class="ll-content" data-footer="false" data-role="page">
+				<div data-role="header" class="ll-header">
+					<a class="button" data-icon="back" href="#">Back</a>
+					<h1>LL</h1>
+				</div>
+
+				<div class="ll-scroll" data-role="content">
+					<!-- <div id="home_banner"></div> -->
+					<div class="ll-content-body">
+						<ul id="home_leagues" data-role="listview" data-inset="true">
+							<li data-role="list-divider">Your Affiliated Leagues</li>
+							<!-- <button id="home_btnleague1">Preston North End</button> -->
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div id="dummy" class="ll-content" data-role="page">
+				<!-- This is another page. -->
+				<div id="home_banner">
+				</div>
+				<p> the man likes to play chess; let's get him some rocks. you measure yourself by the people who measure themselves by you. that tall drink of water with the silver spoon up his ass. i now issue a new commandment: thou shalt do the dance. cities fall but they are rebuilt. heroes die but they are remembered. boxing is about respect. getting it for yourself, and taking it away from the other guy. the man likes to play chess; let's get him some rocks. multiply your anger by about a hundred, kate, that's how much he thinks he loves you. bruce... i'm god. no, this is mount everest. you should flip on the discovery channel from time to time. but i guess you can't now, being dead and all. the man likes to play chess; let's get him some rocks. let me tell you something my friend. hope is a dangerous thing. hope can drive a man insane. ,</p>
+				<p> it only took me six days. same time it took the lord to make the world. rehabilitated? well, now let me see. you know, i don't have any idea what that means. you measure yourself by the people who measure themselves by you. let me tell you something my friend. hope is a dangerous thing. hope can drive a man insane. bruce... i'm god. i did the same thing to gandhi, he didn't eat for three weeks. well, what is it today? more spelunking? i did the same thing to gandhi, he didn't eat for three weeks. boxing is about respect. getting it for yourself, and taking it away from the other guy. no, this is mount everest. you should flip on the discovery channel from time to time. but i guess you can't now, being dead and all. boxing is about respect. getting it for yourself, and taking it away from the other guy. mister wayne, if you don't want to tell me exactly what you're doing, when i'm asked, i don't have to lie. but don't think of me as an idiot. ,</p>
+				<p> rehabilitated? well, now let me see. you know, i don't have any idea what that means. boxing is about respect. getting it for yourself, and taking it away from the other guy. i once heard a wise man say there are no perfect men. only perfect intentions. i once heard a wise man say there are no perfect men. only perfect intentions. no, this is mount everest. you should flip on the discovery channel from time to time. but i guess you can't now, being dead and all. i did the same thing to gandhi, he didn't eat for three weeks. circumstances have taught me that a man's ethics are the only possessions he will take beyond the grave. boxing is about respect. getting it for yourself, and taking it away from the other guy. that tall drink of water with the silver spoon up his ass. i don't think they tried to market it to the billionaire, spelunking, base-jumping crowd. rehabilitated? well, now let me see. you know, i don't have any idea what that means. that tall drink of water with the silver spoon up his ass. ,</p>
+				<p> rehabilitated? well, now let me see. you know, i don't have any idea what that means. boxing is about respect. getting it for yourself, and taking it away from the other guy. i once heard a wise man say there are no perfect men. only perfect intentions. i once heard a wise man say there are no perfect men. only perfect intentions. no, this is mount everest. you should flip on the discovery channel from time to time. but i guess you can't now, being dead and all. i did the same thing to gandhi, he didn't eat for three weeks. circumstances have taught me that a man's ethics are the only possessions he will take beyond the grave. boxing is about respect. getting it for yourself, and taking it away from the other guy. that tall drink of water with the silver spoon up his ass. i don't think they tried to market it to the billionaire, spelunking, base-jumping crowd. rehabilitated? well, now let me see. you know, i don't have any idea what that means. that tall drink of water with the silver spoon up his ass. ,</p>
+				<p> rehabilitated? well, now let me see. you know, i don't have any idea what that means. boxing is about respect. getting it for yourself, and taking it away from the other guy. i once heard a wise man say there are no perfect men. only perfect intentions. i once heard a wise man say there are no perfect men. only perfect intentions. no, this is mount everest. you should flip on the discovery channel from time to time. but i guess you can't now, being dead and all. i did the same thing to gandhi, he didn't eat for three weeks. circumstances have taught me that a man's ethics are the only possessions he will take beyond the grave. boxing is about respect. getting it for yourself, and taking it away from the other guy. that tall drink of water with the silver spoon up his ass. i don't think they tried to market it to the billionaire, spelunking, base-jumping crowd. rehabilitated? well, now let me see. you know, i don't have any idea what that means. that tall drink of water with the silver spoon up his ass. ,</p>
+				<!--
+				<p> multiply your anger by about a hundred, kate, that's how much he thinks he loves you. cities fall but they are rebuilt. heroes die but they are remembered. cities fall but they are rebuilt. heroes die but they are remembered. let me tell you something my friend. hope is a dangerous thing. hope can drive a man insane. i don't think they tried to market it to the billionaire, spelunking, base-jumping crowd. mister wayne, if you don't want to tell me exactly what you're doing, when i'm asked, i don't have to lie. but don't think of me as an idiot. i now issue a new commandment: thou shalt do the dance. i don't think they tried to market it to the billionaire, spelunking, base-jumping crowd. mister wayne, if you don't want to tell me exactly what you're doing, when i'm asked, i don't have to lie. but don't think of me as an idiot. i don't think they tried to market it to the billionaire, spelunking, base-jumping crowd. no, this is mount everest. you should flip on the discovery channel from time to time. but i guess you can't now, being dead and all. bruce... i'm god. ,</p>
+				<p> you measure yourself by the people who measure themselves by you. boxing is about respect. getting it for yourself, and taking it away from the other guy. it only took me six days. same time it took the lord to make the world. multiply your anger by about a hundred, kate, that's how much he thinks he loves you. i once heard a wise man say there are no perfect men. only perfect intentions. i now issue a new commandment: thou shalt do the dance. i once heard a wise man say there are no perfect men. only perfect intentions. mister wayne, if you don't want to tell me exactly what you're doing, when i'm asked, i don't have to lie. but don't think of me as an idiot. well, what is it today? more spelunking? bruce... i'm god. rehabilitated? well, now let me see. you know, i don't have any idea what that means. well, what is it today? more spelunking? ,</p>
+				<p> well, what is it today? more spelunking? it only took me six days. same time it took the lord to make the world. cities fall but they are rebuilt. heroes die but they are remembered. cities fall but they are rebuilt. heroes die but they are remembered. no, this is mount everest. you should flip on the discovery channel from time to time. but i guess you can't now, being dead and all. circumstances have taught me that a man's ethics are the only possessions he will take beyond the grave. bruce... i'm god. that tall drink of water with the silver spoon up his ass. i don't think they tried to market it to the billionaire, spelunking, base-jumping crowd. i did the same thing to gandhi, he didn't eat for three weeks. the man likes to play chess; let's get him some rocks. circumstances have taught me that a man's ethics are the only possessions he will take beyond the grave. ,</p>
+				<p> i now issue a new commandment: thou shalt do the dance. let me tell you something my friend. hope is a dangerous thing. hope can drive a man insane. i once heard a wise man say there are no perfect men. only perfect intentions. i don't think they tried to market it to the billionaire, spelunking, base-jumping crowd. the man likes to play chess; let's get him some rocks. i did the same thing to gandhi, he didn't eat for three weeks. it only took me six days. same time it took the lord to make the world. circumstances have taught me that a man's ethics are the only possessions he will take beyond the grave. that tall drink of water with the silver spoon up his ass. rehabilitated? well, now let me see. you know, i don't have any idea what that means. you measure yourself by the people who measure themselves by you. cities fall but they are rebuilt. heroes die but they are remembered. ,</p>
+				<p> the man likes to play chess; let's get him some rocks. cities fall but they are rebuilt. heroes die but they are remembered. cities fall but they are rebuilt. heroes die but they are remembered. it only took me six days. same time it took the lord to make the world. mister wayne, if you don't want to tell me exactly what you're doing, when i'm asked, i don't have to lie. but don't think of me as an idiot. well, what is it today? more spelunking? i now issue a new commandment: thou shalt do the dance. that tall drink of water with the silver spoon up his ass. multiply your anger by about a hundred, kate, that's how much he thinks he loves you. multiply your anger by about a hundred, kate, that's how much he thinks he loves you. cities fall but they are rebuilt. heroes die but they are remembered. multiply your anger by about a hundred, kate, that's how much he thinks he loves you. ,</p>
+				<p> rehabilitated? well, now let me see. you know, i don't have any idea what that means. cities fall but they are rebuilt. heroes die but they are remembered. you measure yourself by the people who measure themselves by you. it only took me six days. same time it took the lord to make the world. well, what is it today? more spelunking? you measure yourself by the people who measure themselves by you. let me tell you something my friend. hope is a dangerous thing. hope can drive a man insane. i once heard a wise man say there are no perfect men. only perfect intentions. let me tell you something my friend. hope is a dangerous thing. hope can drive a man insane. i now issue a new commandment: thou shalt do the dance. cities fall but they are rebuilt. heroes die but they are remembered. cities fall but they are rebuilt. heroes die but they are remembered. </p>
+				-->
+			</div>
+
+			<div id="search" class="ll-content" data-role="page">
+				<div class="ll-scroll">
+					<!--
+					<select id="search_mode" size="1" class="hide" style="position: absolute; top: 10px;">
+						<option value="player">Player</option>
+						<option value="team">Team</option>
+						<option value="club">Club</option>
+					</select>
+					-->
+					<div id="search_msg" class="hide">Searching...</div>
+					<div id="search_panel">
+						<!-- <div id="search_icon" class="icon-user"></div> -->
+						<input type="text" id="search_text" name="search_text" maxlength="255" required placeholder="Enter search here...">
+						<a id="search_btnSearch" class="button">Search</a>
+					</div>
+					<div id="search_results_panel">
+						<ul id="search_results">
+							<!--
+							<li>
+								<a href="#">
+									<img src="lib/img/dummyprofile.jpg" border="0" />
+									<div class="search_results_text">Tom Crawley</div>
+								</a>	
+							</li>
+							<li>
+								<a href="#">
+									<img src="lib/img/dummyprofile.jpg" border="0" />
+									<div class="search_results_text">Tom Crawley</div>
+								</a>	
+							</li>
+							-->
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div id="league" class="ll-content" data-footer="leagueFooter" data-role="page">
+				<div data-role="header" class="ll-header">
+					<a class="button" data-icon="back" href="#">Back</a>
+					<h1>LL</h1>
+				</div>
+
+				<div class="ll-scroll" data-role="content">
+					<!--
+					<div id="league_header">
+						<div class="league-photo-wrapper">
+							<img src="http://leagueligh1.eweb801.discountasp.net/Images/Uploads/150/2013/04/20/lsa.png" border="0" />
+						</div>
+						<div id="league_data">
+							<div id="league_leagueName" data-model="leagueName">this is the name</div>
+						</div>
+					</div>
+					-->
+					<ul id="league_properties" data-role="listview" data-inset="true">
+						<li data-role="list-divider">
+							<img src="http://leagueligh1.eweb801.discountasp.net/Images/Uploads/150/2013/04/20/lsa.png" border="0" />
+							<h2 style="margin-left: 10px;" data-model="leagueName"></h2>
+						</li>
+						<li class="property">
+							<h2 class="label">Sport</h2>
+							<p class="value" data-model="sportName">Volleyball</p>
+						</li>
+						<li class="property">
+							<h2 class="label">Country</h2>
+							<p class="value" data-model="countryName">England</p>
+						</li>
+						<li class="property">
+							<h2 class="label">Level</h2>
+							<p class="value" data-model="leagueLevelName">Professional</p>
+						</li>
+						<li class="property">
+							<h2 class="label">Group</h2>
+							<p class="value" data-model="leagueGroupName">Adult</p>
+						</li>
+						<li class="property">
+							<h2 class="label">Sex</h2>
+							<p class="value" data-model="leagueSexName">Mixed</p>
+						</li>
+					</ul>
+				</div>
+				<div id="footerContainer" data-role="footer" data-id="footerContainer" data-tap-toggle="false">
+					<div id="footer" data-role="navbar">
+						<ul>
+							<li><a href="#new" data-icon="home" class="selected">Details</a></li>
+							<li><a href="#list" data-icon="clubs">Clubs</a></li>
+							<li><a href="#list" data-icon="users">Teams</a></li>
+							<li><a href="#home" data-icon="table">Tables</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div id="club" class="ll-content" data-footer="clubFooter" data-role="page">
+				<div class="ll-scroll">
+					<div id="club_header">
+						<div class="club-photo-wrapper">
+							<img src="lib/img/dummy.png" border="0" />
+						</div>
+						<div id="league_data">
+							<div id="club_clubName" data-model="clubName">this is the name</div>
+						</div>
+					</div>
+					<div id="league_properties">
+						<div class="property">
+							<div class="label">Address</div>
+							<div class="value" data-model="clubAddress">1 Main Street</div>
+						</div>
+						<div class="property">
+							<div class="label">Country</div>
+							<div class="value" data-model="countryName">England</div>
+						</div>
+						<div class="property">
+							<div class="label">Phone</div>
+							<div class="value" data-model="clubTel">Professional</div>
+						</div>
+						<div class="property">
+							<div class="label">Website</div>
+							<div class="value" data-model="website">google.com</div>
+						</div>
+						<div class="property">
+							<div class="label">Opening Times</div>
+							<div class="value" data-model="openingTimes">12 - 11</div>
+						</div>
+						<div class="property">
+							<div class="label">Parking Rating</div>
+							<div class="value" data-model="parkingRating">2</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="team" class="ll-content" data-footer="teamFooter">
+				<div class="ll-scroll">
+					<div id="club_header">
+						<div class="club-photo-wrapper">
+							<img src="lib/img/dummy.png" border="0" />
+						</div>
+						<div id="league_data">
+							<div id="team_teamName" data-model="teamName">this is the name</div>
+						</div>
+					</div>
+					<div id="league_properties">
+						<div class="property">
+							<div class="label">Club</div>
+							<div class="value" data-model="clubName">Man Utd</div>
+						</div>
+						<div class="property">
+							<div class="label">Country</div>
+							<div class="value" data-model="countryName">England</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div id="player" class="ll-content">
+				<img id="player_photo" src="lib/img/dummyprofile.jpg" border="0">
+				<div id="player_details">
+					<span id="player_name">Tom Crawley</span>
+
+					<ul id="player_properties">
+						<li>
+							<span class="icon icon-home"></span>
+							<span id="player_address">
+								21 North End, Preston, PR9 9AB
+							</span>
+						</li>
+						<li>
+							<span class="icon icon-phone"></span>
+							<span id="player_phone">
+								01772 123456
+							</span>
+						</li>
+						<li>
+							<span class="icon icon-mobile"></span>
+							<span id="player_mobile">
+								0774002310
+							</span>
+						</li>
+						<li>
+							<span class="icon icon-envelope"></span>
+							<span id="player_email">
+								tom@tomcrawley.com
+							</span>
+						</li>
+						<li>
+							<span class="icon icon-check-alt"></span>
+							<span id="player_llmember">
+								LeagueLight Member
+							</span>
+						</li>
+						<li>
+							<span class="icon icon-check-alt"></span>
+							<span id="player_availability">
+								Active
+							</span>
+						</li>
+						<li>
+							<span class="icon icon-dice"></span>
+							<span id="player_handicap">
+								10
+							</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+
+		<!--
+	<div id="footerContainer" data-role="footer" data-id="footerContainer" data-tap-toggle="false">
+		<div id="footer" data-role="navbar">
+			<ul>
+				<li><a href="#new" data-icon="home">Details</a></li>
+				<li><a href="#list" data-icon="clubs">Clubs</a></li>
+				<li><a href="#list" data-icon="users">Teams</a></li>
+				<li><a href="#home" data-icon="table">Tables</a></li>
+			</ul>
+		</div>
+	</div>
+	-->
+
+	<!--
+	<div class="ll-footer hide">
+		<a href="#" class="ll-footer-btn selected" id="btnHome">
+			<span class="ll-footer-icon icon-home"></span>
+			<span class="ll-footer-text">Home</span>
+		</a>
+		<a href="#" class="ll-footer-btn" id="btnMail">
+			<span class="ll-footer-icon icon-envelope"></span>
+			<span class="ll-footer-text">Mail</span>
+		</a>
+		<a href="#" class="ll-footer-btn" id="btnSearch">
+			<span class="ll-footer-icon icon-search"></span>
+			<span class="ll-footer-text">Search</span>
+		</a>
+		<a href="#" class="ll-footer-btn" id="btnPhoto">
+			<span class="ll-footer-icon icon-camera"></span>
+			<span class="ll-footer-text">Photo</span>
+		</a>
+	</div>
+	<div id="leagueFooter" class="ll-footer hide">
+		<a href="#" class="ll-footer-btn selected" id="league_home">
+			<span class="ll-footer-icon icon-home"></span>
+			<span class="ll-footer-text">Details</span>
+		</a>
+		<a href="#" class="ll-footer-btn" id="league_clubs">
+			<span class="ll-footer-icon icon-clubs"></span>
+			<span class="ll-footer-text">Clubs</span>
+		</a>
+		<a href="#" class="ll-footer-btn" id="league_teams">
+			<span class="ll-footer-icon icon-users"></span>
+			<span class="ll-footer-text">Teams</span>
+		</a>
+		<a href="#" class="ll-footer-btn" id="league_table">
+			<span class="ll-footer-icon icon-table"></span>
+			<span class="ll-footer-text">Tables</span>
+		</a>
+	</div>
+
+	<div id="clubFooter" class="ll-footer hide">
+		<a href="#" class="ll-footer-btn selected" id="club_home">
+			<span class="ll-footer-icon icon-home"></span>
+			<span class="ll-footer-text">Details</span>
+		</a>
+		<a href="#" class="ll-footer-btn" id="club_teams">
+			<span class="ll-footer-icon icon-users"></span>
+			<span class="ll-footer-text">Teams</span>
+		</a>
+		<a href="#" class="ll-footer-btn" id="club_players">
+			<span class="ll-footer-icon icon-user"></span>
+			<span class="ll-footer-text">Players</span>
+		</a>
+		<a href="#" class="ll-footer-btn" id="club_hibreaks">
+			<span class="ll-footer-icon icon-award-stroke"></span>
+			<span class="ll-footer-text">High Breaks</span>
+		</a>
+		<a href="#" class="ll-footer-btn" id="club_table">
+			<span class="ll-footer-icon icon-table"></span>
+			<span class="ll-footer-text">Tables</span>
+		</a>
+	</div>
+
+	<div id="teamFooter" class="ll-footer hide">
+		<a href="#" class="ll-footer-btn selected" id="club_home">
+			<span class="ll-footer-icon icon-home"></span>
+			<span class="ll-footer-text">Details</span>
+		</a>
+		<a href="#" class="ll-footer-btn" id="club_players">
+			<span class="ll-footer-icon icon-user"></span>
+			<span class="ll-footer-text">Players</span>
+		</a>
+		<a href="#" class="ll-footer-btn" id="club_hibreaks">
+			<span class="ll-footer-icon icon-award-stroke"></span>
+			<span class="ll-footer-text">High Breaks</span>
+		</a>
+		<a href="#" class="ll-footer-btn" id="club_table">
+			<span class="ll-footer-icon icon-table"></span>
+			<span class="ll-footer-text">Tables</span>
+		</a>
+	</div>
+	-->
+
+
+	<div id="ll-overlay" class="hide"></div>
+</body>
+</html>
+
